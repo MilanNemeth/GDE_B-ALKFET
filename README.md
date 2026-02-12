@@ -1,2 +1,1 @@
-# GDE_B-ALKFET
-GDE - Alkalmazásfejlesztési technológiák
+# B-ALKFET - Alkalmazásfejlesztési technológiák
