@@ -1,0 +1,88 @@
+<mxfile host="65bd71144e">
+    <diagram id="cxwWG7ym0t9v4cwAM-fR" name="Page-1">
+        <mxGraphModel dx="1936" dy="529" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="28" value="Local project folder" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=left;verticalLabelPosition=top;align=right;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="-280" y="280" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="GitHub" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=left;verticalLabelPosition=top;align=right;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="-470" y="440" width="380" height="410" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Kubernetes cluster" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry y="460" width="440" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="GitHub Repository" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="-280" y="460" width="160" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Deployment manifests" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-260" y="480" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Source with Dockerfiles" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-260" y="580" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="GitHub Container Registry&lt;br&gt;(ghcr.io)" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="-280" y="700" width="160" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Docker Images" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="-260" y="740" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="polling" style="edgeStyle=entityRelationEdgeStyle;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontColor=#FF8000;strokeColor=#FF8000;" edge="1" parent="1" source="16" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Sync&lt;br&gt;between&lt;br&gt;current&lt;br&gt;state and&lt;br&gt;desired state" style="edgeStyle=entityRelationEdgeStyle;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;strokeColor=#CC6600;fontColor=#CC6600;" edge="1" parent="1" source="16" target="18">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="ArgoCD" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://framerusercontent.com/images/p5PDKCYk5RVj0IuP5pPLxhihX6U.png;clipPath=inset(10% 33.33% 18.75% 33.33%);imageBorder=default;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="568.1800000000001" width="103.19298245614034" height="117.64" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="240" y="504" width="180" height="246" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Workloads" style="rounded=1;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;" vertex="1" parent="19">
+                    <mxGeometry width="180" height="246" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod" vertex="1" parent="19">
+                    <mxGeometry x="120" y="188" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod" vertex="1" parent="19">
+                    <mxGeometry x="10" y="188" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod" vertex="1" parent="19">
+                    <mxGeometry x="10" y="6" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod" vertex="1" parent="19">
+                    <mxGeometry x="120" y="6" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod" vertex="1" parent="19">
+                    <mxGeometry x="10" y="126" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod" vertex="1" parent="19">
+                    <mxGeometry x="120" y="126" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod" vertex="1" parent="19">
+                    <mxGeometry x="10" y="66" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=pod" vertex="1" parent="19">
+                    <mxGeometry x="120" y="66" width="50" height="48" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="GitHub Action: docker build" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;strokeColor=#0000CC;fontColor=#000099;" edge="1" parent="1" source="4" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Merged PR / Pushed n&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;ew commit&lt;/span&gt;" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="23" target="2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#000000;shape=mxgraph.azure.git_repository;" vertex="1" parent="1">
+                    <mxGeometry x="-225" y="320" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#000000;shape=mxgraph.azure.github_code;pointerEvents=1;" vertex="1" parent="1">
+                    <mxGeometry x="-460" y="450" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Pull images&lt;br&gt;from registry" style="html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;edgeStyle=entityRelationEdgeStyle;elbow=vertical;fontColor=#0000CC;strokeColor=#000099;" edge="1" parent="1" source="18" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
