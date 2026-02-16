@@ -1,11 +1,12 @@
 @if (hero) {
 <div>
-    <h2>{{hero.name | uppercase}} Details</h2>
+    <h2>{{hero.name | uppercase}} Editor</h2>
     <div>id: {{hero.id}}</div>
     <div>
         <label for="hero-name">Hero name: </label>
         <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
     </div>
+    <button (click)="save()">Save</button>
 </div>
 }
 @else {

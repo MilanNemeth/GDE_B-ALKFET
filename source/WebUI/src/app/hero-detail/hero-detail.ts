@@ -11,4 +11,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class HeroDetail {
   @Input() hero?: Hero;
+
+  save(): void {
+    if (this.hero) {
+      console.log(`Saved hero: ${this.hero.name}`);
+    }
+  }
 }
