@@ -1,0 +1,27 @@
+/* float‑based layout: main content left, messages right */
+.layout {
+  /* establish a block formatting context to contain floats */
+  overflow: auto;
+  /* optional padding or margins can be added here */
+}
+
+.main-content {
+  float: left;
+  width: 65%;
+  /* ensure content doesn't collide with right panel */
+  margin-right: 2%;
+}
+
+.messages-panel {
+  float: right;
+  width: 30%;
+  /* make sure it behaves as block for float */
+  display: block;
+}
+
+/* clear floats if any elements follow the layout container */
+.layout::after {
+  content: "";
+  display: table;
+  clear: both;
+}
