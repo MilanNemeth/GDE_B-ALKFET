@@ -1,22 +1,17 @@
-<h1>{{title}}</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">Hero List</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/create']">Hero Creator</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<!-- float layout container -->
-<div class="layout">
-  <main class="main-content">
-      <a [routerLink]="['/']">
-          <header class="brand-name">
-              <p>Hero List</p>
-          </header>
-      </a>
-      <a [routerLink]="['/create']">
-          <header class="brand-name">
-              <p>Hero Creator</p>
-          </header>
-      </a>
-      <section class="content">
-          <router-outlet />
-      </section>
-  </main>
-
-  <app-messages class="messages-panel"></app-messages>
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+  <app-messages class="mt-3"></app-messages>
 </div>

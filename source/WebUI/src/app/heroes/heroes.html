@@ -1,14 +1,12 @@
 <h2>My Heroes</h2>
-<ul class="heroes">
+<ul class="list-group">
     @for (hero of heroes; track hero.id) {
-    <li>
-        <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
-            <span class="badge">{{hero.id}}</span>
-            <span class="name">{{hero.name}}</span>
-        </button>
+    <li class="list-group-item d-flex justify-content-between align-items-center" [class.active]="hero === selectedHero" (click)="onSelect(hero)">
+        <span>{{hero.id}}</span>
+        <span>{{hero.name}}</span>
     </li>
     } @empty {
-    <li>There are no items.</li>
+    <li class="list-group-item">There are no items.</li>
     }
 </ul>
 

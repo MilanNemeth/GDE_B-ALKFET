@@ -1,6 +1,8 @@
-<div>
-    <h2>Create New Hero</h2>
-    <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="name" placeholder="name">
-    <button type="button" (click)="create()">Create</button>
+<div class="card p-3">
+    <h2 class="card-title">Create New Hero</h2>
+    <div class="mb-3">
+        <label for="hero-name" class="form-label">Hero name:</label>
+        <input id="hero-name" class="form-control" [(ngModel)]="name" placeholder="name">
+    </div>
+    <button type="button" class="btn btn-success" (click)="create()">Create</button>
 </div>
