@@ -1,3 +1,5 @@
+using Domain;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,30 +14,35 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
 
-var summaries = new[]
+app.MapGet("/hero", async (CancellationToken ct) =>
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
+    return Results.Ok(Array.Empty<Hero>());
 })
-.WithName("GetWeatherForecast");
+.WithName("GetHeroes");
+
+app.MapGet("/hero/{id}", async (int id, CancellationToken ct) =>
+{
+    return Results.Ok(new { Id = id });
+}).WithName("GetHero");
+
+
+app.MapPost("/hero", async (Hero hero, CancellationToken ct) =>
+{
+    return Results.Ok(new { Id = 1 });
+}).WithName("CreateHero");
+
+
+app.MapPut("/hero/{id}", async (Hero hero, CancellationToken ct) =>
+{
+    return Results.Ok(new { hero.Id });
+}).WithName("UpdateHero");
+
+
+app.MapDelete("/hero/{id}", async (int id, CancellationToken ct) =>
+{
+    return Results.Ok();
+}).WithName("DeleteHero");
+
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
