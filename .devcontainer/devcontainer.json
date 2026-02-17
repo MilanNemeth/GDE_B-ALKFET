@@ -38,7 +38,8 @@
 				"ms-dotnettools.csdevkit",
 				"Angular.ng-template",
 				"PKief.material-icon-theme",
-				"humao.rest-client"
+				"humao.rest-client",
+				"mongodb.mongodb-vscode"
 			]
 		}
 	}
