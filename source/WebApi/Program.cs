@@ -24,7 +24,19 @@ builder.Services.ConfigureHttpJsonOptions(options =>
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 
+const string AllowUiOrigins = "AllowUiOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(AllowUiOrigins, policy =>
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod());
+});
+
 var app = builder.Build();
+
+app.UseCors(AllowUiOrigins);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

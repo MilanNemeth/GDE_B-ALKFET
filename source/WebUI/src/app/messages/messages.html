@@ -1,8 +1,8 @@
 <div class="card p-3 mb-3">
     <h2 class="card-title">Messages</h2>
     <button type="button" class="btn btn-sm btn-secondary mb-2" (click)="messageService.clear()">Clear messages</button>
-    @if (messageService.messages.length) {
-    @for (message of messageService.messages; track $index) {
+    @if (messageService.messages().length) {
+    @for (message of messageService.messages(); track $index) {
     <div class="alert alert-info py-1"> {{message}} </div>
     }
     }
