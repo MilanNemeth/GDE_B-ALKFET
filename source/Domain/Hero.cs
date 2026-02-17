@@ -1,3 +1,11 @@
-﻿namespace Domain;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
-public record Hero(int Id, string Name);
+namespace Domain;
+
+public record Hero{
+    [BsonGuidRepresentation(GuidRepresentation.Standard)]
+    public required Guid Id { get; init; }
+
+    public required string Name { get; init; }
+}

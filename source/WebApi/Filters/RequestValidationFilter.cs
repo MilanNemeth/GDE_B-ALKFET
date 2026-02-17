@@ -10,7 +10,7 @@ public class RequestValidationFilter : IEndpointFilter
         // REQUEST INTERCEPTION
         // Validate request before calling any handlers
         Hero hero = context.Arguments.OfType<Hero>().Single();
-        if (hero.Id < 1 ||
+        if (hero.Id == Guid.Empty ||
             string.IsNullOrWhiteSpace(hero.Name)) return Results.BadRequest("Incorrect hero data.");
 
         // If validation passes, call the next handler(s)

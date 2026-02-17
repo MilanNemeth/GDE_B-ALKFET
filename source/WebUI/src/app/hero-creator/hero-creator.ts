@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MessageService } from '../message-service';
 import { HeroService } from '../hero-service';
+import {v4 as uuidv4} from 'uuid';
 
 @Component({
   selector: 'app-hero-creator',
@@ -14,8 +15,7 @@ export class HeroCreator {
   name = '';
 
   create(): void {
-    // TODO: solve id generation in a better way
-    const newHero = { id: Math.floor(Math.random() * 1000) + 1, name: this.name };
+    const newHero = { id: uuidv4(), name: this.name };
     this.heroService.createHero(newHero).subscribe({
       next: hero => {
         console.log(`Hero created with id=${hero.id} and name=${hero.name}`);

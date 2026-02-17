@@ -13,7 +13,7 @@ export class HeroDetail {
   constructor(private heroService: HeroService) { }
 
   @Input() hero?: Hero;
-  @Output() heroDeleted = new EventEmitter<number>();
+  @Output() heroDeleted = new EventEmitter<string>();
 
   save(): void {
     if (this.hero) {

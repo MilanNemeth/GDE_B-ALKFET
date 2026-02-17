@@ -38,7 +38,7 @@ export class HeroesComponent implements OnInit{
     this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
   }
 
-  handleDelete(deletedHeroId: number): void {
+  handleDelete(deletedHeroId: string): void {
     this.heroes.update(heroes => heroes.filter(hero => hero.id !== deletedHeroId));
     if (this.selectedHero?.id === deletedHeroId) {
       this.selectedHero = undefined; // Clear the selected hero if it was deleted

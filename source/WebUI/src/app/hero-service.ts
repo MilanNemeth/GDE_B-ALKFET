@@ -57,7 +57,7 @@ export class HeroService {
     );
   }
 
-  deleteHero(id: number): Observable<void> {
+  deleteHero(id: string): Observable<void> {
     const url = `${this.apiUrl}/hero/${id}`;
     return this.http.delete<{ id: number; deleted: boolean }>(url).pipe(
       map(res => {

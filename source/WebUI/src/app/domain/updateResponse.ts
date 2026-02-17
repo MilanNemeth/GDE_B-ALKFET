@@ -1,4 +1,4 @@
 export interface UpdateResponse {
-  id: number;
+  id: string;
   updated: boolean;
 }

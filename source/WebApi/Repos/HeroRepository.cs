@@ -8,7 +8,7 @@ public class HeroRepository(IMongoDbConnectionFactory dbFactory) : IHeroReposito
 {
     private IMongoCollection<Hero> Collection => dbFactory.GetDatabase().GetCollection<Hero>("Heroes");
 
-    public async Task<Hero?> GetHero(int id, CancellationToken ct = default)
+    public async Task<Hero?> GetHero(Guid id, CancellationToken ct = default)
     {
         var filter = Builders<Hero>.Filter.Eq(hero => hero.Id, id);
         FindOptions<Hero>? opts = null;
@@ -28,7 +28,7 @@ public class HeroRepository(IMongoDbConnectionFactory dbFactory) : IHeroReposito
         return await cursor.ToListAsync(ct);
     }
 
-    public async Task<int> CreateHero(Hero hero, CancellationToken ct = default)
+    public async Task<Guid> CreateHero(Hero hero, CancellationToken ct = default)
     {
         InsertOneOptions? opts = null;
 
@@ -47,7 +47,7 @@ public class HeroRepository(IMongoDbConnectionFactory dbFactory) : IHeroReposito
         return result.IsAcknowledged && result.IsModifiedCountAvailable && result.ModifiedCount > 0;
     }
 
-    public async Task<bool> DeleteHero(int id, CancellationToken ct = default)
+    public async Task<bool> DeleteHero(Guid id, CancellationToken ct = default)
     {
         var filter = Builders<Hero>.Filter.Eq(h => h.Id, id);
         DeleteOptions? opts = null;

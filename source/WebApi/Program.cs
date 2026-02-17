@@ -52,7 +52,7 @@ app.MapGet("/hero", async ([FromServices]IHeroRepository repo, CancellationToken
 })
 .WithName("GetHeroes");
 
-app.MapGet("/hero/{id}", async ([FromRoute]int id, [FromServices]IHeroRepository repo, CancellationToken ct) =>
+app.MapGet("/hero/{id}", async ([FromRoute]Guid id, [FromServices]IHeroRepository repo, CancellationToken ct) =>
 {
     return await repo.GetHero(id, ct) is Hero hero
         ? Results.Ok(hero)
@@ -62,12 +62,12 @@ app.MapGet("/hero/{id}", async ([FromRoute]int id, [FromServices]IHeroRepository
 
 app.MapPost("/hero", async ([FromBody]Hero hero, [FromServices]IHeroRepository repo, CancellationToken ct) =>
 {
-    int heroId = await repo.CreateHero(hero, ct);
+    Guid heroId = await repo.CreateHero(hero, ct);
     return Results.Created($"/hero/{heroId}", hero);
 }).AddEndpointFilter<RequestValidationFilter>().WithName("CreateHero");
 
 
-app.MapPut("/hero/{id}", async ([FromRoute]int id, [FromBody] Hero hero, [FromServices]IHeroRepository repo, CancellationToken ct) =>
+app.MapPut("/hero/{id}", async ([FromRoute]Guid id, [FromBody] Hero hero, [FromServices]IHeroRepository repo, CancellationToken ct) =>
 {
     if (id != hero.Id) return Results.BadRequest("ID mismatch.");
     bool updated = await repo.UpdateHero(hero, ct);
@@ -75,7 +75,7 @@ app.MapPut("/hero/{id}", async ([FromRoute]int id, [FromBody] Hero hero, [FromSe
 }).AddEndpointFilter<RequestValidationFilter>().WithName("UpdateHero");
 
 
-app.MapDelete("/hero/{id}", async ([FromRoute]int id, [FromServices]IHeroRepository repo, CancellationToken ct) =>
+app.MapDelete("/hero/{id}", async ([FromRoute]Guid id, [FromServices]IHeroRepository repo, CancellationToken ct) =>
 {
     bool deleted = await repo.DeleteHero(id, ct);
     return Results.Ok(new { id, deleted });
