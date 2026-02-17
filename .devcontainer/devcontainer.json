@@ -28,6 +28,7 @@
 	// "forwardPorts": [],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "docker --version",
+	"postAttachCommand": "pwsh -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command \"& '/workspaces/GDE_B-ALKFET/tools/setup_devenv.ps1'; exit\"",
 	// Configure tool-specific properties.
 	"customizations": {
 		"vscode": {

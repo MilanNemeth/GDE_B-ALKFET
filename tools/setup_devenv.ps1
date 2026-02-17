@@ -1,3 +1,4 @@
+#!/usr/bin/env pwsh
 $networExists = docker network ls --filter name=balkfet-network --format "{{.Name}}" | grep -w balkfet-network
 if ($null -eq $networExists) {
     docker network create balkfet-network
@@ -10,3 +11,5 @@ if ($null -eq $dbContainerExists) {
 else {
     docker start balkfet-mongodb
 }
+
+exit 0
