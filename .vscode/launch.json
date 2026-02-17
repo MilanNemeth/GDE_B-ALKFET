@@ -3,10 +3,16 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "ng serve",
+      "name": "WebApi",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/source/WebApi/WebApi.csproj"
+    },
+    {
+      "name": "WebUI",
       "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "npm: start",
+      "preLaunchTask": "webui",
       "url": "http://localhost:4200/"
     },
     {
@@ -15,6 +21,15 @@
       "request": "launch",
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "HeroProject",
+      "configurations": [
+        "WebApi",
+        "WebUI"
+      ]
     }
   ]
 }
