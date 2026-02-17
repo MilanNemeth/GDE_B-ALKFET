@@ -11,7 +11,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../DataAccess/DataAccess.csproj" />
     <ProjectReference Include="../Domain/Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Filters/" />
+    <Folder Include="Repos/" />
   </ItemGroup>
 
 </Project>

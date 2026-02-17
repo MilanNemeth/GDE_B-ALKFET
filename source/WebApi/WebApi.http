@@ -1,6 +1,44 @@
-@WebApi_HostAddress = http://localhost:5097
+@WebApi_HostAddress = http://localhost:5000
 
-GET {{WebApi_HostAddress}}/weatherforecast/
+###
+
+# Hero endpoints
+
+### Get all heroes
+GET {{WebApi_HostAddress}}/hero
 Accept: application/json
+
+###
+
+### Get a single hero by ID
+GET {{WebApi_HostAddress}}/hero/1
+Accept: application/json
+
+###
+
+### Create a new hero
+POST {{WebApi_HostAddress}}/hero
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Superman",
+}
+
+###
+
+### Update an existing hero (ID in path must match body)
+PUT {{WebApi_HostAddress}}/hero/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Batman",
+}
+
+###
+
+### Delete a hero by ID
+DELETE {{WebApi_HostAddress}}/hero/1
 
 ###
