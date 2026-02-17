@@ -34,7 +34,8 @@
 				"mhutchie.git-graph",
 				"ms-dotnettools.csdevkit",
 				"Angular.ng-template",
-				"PKief.material-icon-theme"
+				"PKief.material-icon-theme",
+				"humao.rest-client"
 			]
 		}
 	}
