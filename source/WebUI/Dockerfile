@@ -3,7 +3,7 @@ FROM node:24.13-alpine AS build
 WORKDIR /app
 COPY WebUI/ ./
 RUN npm install
-RUN npm run build --configuration=production
+RUN npm run build:production
 
 # Run stage
 FROM nginx:stable-alpine3.23
