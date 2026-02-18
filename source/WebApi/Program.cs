@@ -24,12 +24,13 @@ builder.Services.ConfigureHttpJsonOptions(options =>
     options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
 });
 
+// Allow cross-origin requests from the UI running on different ports during development/deployment
 const string AllowUiOrigins = "AllowUiOrigins";
-
+string[] uiOrigins = ["http://localhost:4200", "http://localhost:30080"];
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(AllowUiOrigins, policy =>
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins(uiOrigins)
               .AllowAnyHeader()
               .AllowAnyMethod());
 });
