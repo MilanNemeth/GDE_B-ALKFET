@@ -1,5 +1,5 @@
 # This is a customed version of the template available in the GitHub Actions documentation: https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images
-name: CI-Docker-Build-UI
+name: CI-Docker-Build-WebUI
 
 on:
   push:
