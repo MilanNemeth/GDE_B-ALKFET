@@ -2,6 +2,8 @@
 name: CI-Docker-Build-WebApi
 
 on:
+  workflow_dispatch:
+    # workflow_dispatch allows to run this workflow manually from the Actions tab.
   push:
     branches: ["master"]
     paths:
