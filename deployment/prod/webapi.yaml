@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: balkfet-webapi
-          image: ghcr.io/milannemeth/gde_b-alkfet/balkfet-webapi:master
+          image: ghcr.io/milannemeth/gde_b-alkfet/balkfet-webapi:latest
           imagePullPolicy: Always
           env:
             - name: MongoDb__ConneX

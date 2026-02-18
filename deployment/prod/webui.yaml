@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: balkfet-webui
-        image: ghcr.io/milannemeth/gde_b-alkfet/balkfet-webui:master
+        image: ghcr.io/milannemeth/gde_b-alkfet/balkfet-webui:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
