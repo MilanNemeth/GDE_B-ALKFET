@@ -29,7 +29,7 @@ metadata:
   namespace: balkfet-prod
 spec:
   selector:
-    app.kubernetes.io/name: balkfet-webui-prod
+    app: balkfet-webui-prod
   ports:
     - protocol: TCP
       port: 80

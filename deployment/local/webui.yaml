@@ -29,7 +29,7 @@ metadata:
   namespace: balkfet-local
 spec:
   selector:
-    app.kubernetes.io/name: balkfet-webui-local
+    app: balkfet-webui-local
   ports:
     - protocol: TCP
       port: 8000
