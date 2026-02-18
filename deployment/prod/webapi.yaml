@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: balkfet-webapi-prod
+  namespace: balkfet-prod
+  labels:
+    app: balkfet-webapi-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: balkfet-webapi-prod
+  template:
+    metadata:
+      labels:
+        app: balkfet-webapi-prod
+    spec:
+      containers:
+        - name: balkfet-webapi
+          image: ghcr.io/milannemeth/gde_b-alkfet/balkfet-webapi:master
+          imagePullPolicy: Always
+          env:
+            - name: MongoDb__ConneX
+              valueFrom:
+                secretKeyRef:
+                  name: balkfet-secrets-prod
+                  key: mongodb-url
+          ports:
+            - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: balkfet-webapi-prod
+  namespace: balkfet-prod
+spec:
+  selector:
+    app.kubernetes.io/name: balkfet-webapi-prod
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+      nodePort: 30081
+  type: NodePort

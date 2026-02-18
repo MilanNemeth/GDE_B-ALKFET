@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: balkfet-webui-prod
+  namespace: balkfet-prod
+  labels:
+    app: balkfet-webui-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: balkfet-webui-prod
+  template:
+    metadata:
+      labels:
+        app: balkfet-webui-prod
+    spec:
+      containers:
+      - name: balkfet-webui
+        image: ghcr.io/milannemeth/gde_b-alkfet/balkfet-webui:master
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: balkfet-webui-prod
+  namespace: balkfet-prod
+spec:
+  selector:
+    app.kubernetes.io/name: balkfet-webui-prod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30080
+  type: NodePort
