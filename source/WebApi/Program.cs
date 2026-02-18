@@ -25,19 +25,18 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 });
 
 // Allow cross-origin requests from the UI running on different ports during development/deployment
-const string AllowUiOrigins = "AllowUiOrigins";
-string[] uiOrigins = ["http://localhost:4200", "http://localhost:30080"];
+const string AllowAnyOrigin = "AllowAnyOrigin";
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(AllowUiOrigins, policy =>
-        policy.WithOrigins(uiOrigins)
+    options.AddPolicy(AllowAnyOrigin, policy =>
+        policy.AllowAnyOrigin()
               .AllowAnyHeader()
               .AllowAnyMethod());
 });
 
 var app = builder.Build();
 
-app.UseCors(AllowUiOrigins);
+app.UseCors(AllowAnyOrigin);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
