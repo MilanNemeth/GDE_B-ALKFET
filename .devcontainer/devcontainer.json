@@ -39,7 +39,8 @@
 				"Angular.ng-template",
 				"PKief.material-icon-theme",
 				"humao.rest-client",
-				"mongodb.mongodb-vscode"
+				"mongodb.mongodb-vscode",
+				"me-dutour-mathieu.vscode-github-actions"
 			]
 		}
 	}
