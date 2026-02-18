@@ -18,7 +18,12 @@
 		"ghcr.io/devcontainers/features/powershell:2": {
 			"version": "7.5"
 		},
-		"ghcr.io/devcontainers-extra/features/angular-cli:2": {}
+		"ghcr.io/devcontainers-extra/features/angular-cli:2": {},
+		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+			"version": "latest",
+			"helm": "4.1.1",
+			"minikube": "none"
+		}
 	},
 	// Use this environment variable if you need to bind mount your local source code into a new container.
 	"remoteEnv": {
