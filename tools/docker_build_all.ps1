@@ -1,3 +1,4 @@
+#!/usr/bin/env pwsh
 # set working directory to the script's directory
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location $scriptDir
