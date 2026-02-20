@@ -31,9 +31,9 @@
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "docker --version",
 	"initializeCommand": "docker network inspect balkfet-network -f '{{.Name}}' || docker network create balkfet-network",
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "npm install --prefix /workspaces/GDE_B-ALKFET/source/WebUI",
 	"postAttachCommand": "pwsh -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command \"& '/workspaces/GDE_B-ALKFET/tools/setup_devenv.ps1'; exit\"",
 	// Configure tool-specific properties.
 	"customizations": {
