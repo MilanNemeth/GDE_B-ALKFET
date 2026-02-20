@@ -13,11 +13,11 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./heroes.scss'],
   imports: [FormsModule, HeroDetail, CommonModule]
 })
-export class HeroesComponent implements OnInit{
+export class HeroesComponent implements OnInit {
   constructor(private heroService: HeroService, private messageService: MessageService) { }
 
   heroes = signal<Hero[]>([]);
-  selectedHero?: Hero;
+  selectedHero = signal<Hero | undefined>(undefined);
 
   ngOnInit(): void {
     this.getHeroes();
@@ -33,15 +33,20 @@ export class HeroesComponent implements OnInit{
         });
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  onSelect(hero: Hero | undefined): void {
+    if (this.selectedHero() === hero) {
+      this.selectedHero.set(undefined); // Clear the selected hero if the same hero is clicked again
+      return;
+    }
+    this.selectedHero.set(hero);
+    this.messageService.add(`HeroesComponent: ${hero ? `Selected hero id=${hero.id}` : 'Cleared selected hero'}`);
   }
 
   handleDelete(deletedHeroId: string): void {
     this.heroes.update(heroes => heroes.filter(hero => hero.id !== deletedHeroId));
-    if (this.selectedHero?.id === deletedHeroId) {
-      this.selectedHero = undefined; // Clear the selected hero if it was deleted
+    if (this.selectedHero()?.id === deletedHeroId) {
+      this.selectedHero.set(undefined); // Clear the selected hero if it was deleted
     }
   }
+
 }

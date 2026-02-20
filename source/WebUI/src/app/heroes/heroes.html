@@ -1,7 +1,8 @@
 <h2>My Heroes</h2>
 <ul class="list-group">
     @for (hero of heroes(); track hero.id) {
-    <li class="list-group-item d-flex justify-content-between align-items-center" [class.active]="hero === selectedHero" (click)="onSelect(hero)">
+    <li class="list-group-item d-flex justify-content-between align-items-center" [class.active]="hero === selectedHero()"
+        (click)="onSelect(hero)">
         <span>{{hero.id}}</span>
         <span>{{hero.name}}</span>
     </li>
@@ -10,4 +11,5 @@
     }
 </ul>
 
-<app-hero-detail [hero]="selectedHero" (heroDeleted)="handleDelete($event)"></app-hero-detail>
+<app-hero-detail [hero]="selectedHero" (heroDeleted)="handleDelete($event)">
+</app-hero-detail>
