@@ -9,11 +9,11 @@
       "projectPath": "${workspaceFolder}/source/WebApi/WebApi.csproj"
     },
     {
+      "command": "npm start",
       "name": "WebUI",
-      "type": "chrome",
       "request": "launch",
-      "preLaunchTask": "webui",
-      "url": "http://localhost:4200/"
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/source/WebUI/"
     },
     {
       "name": "ng test",

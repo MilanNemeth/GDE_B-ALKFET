@@ -67,7 +67,8 @@
         "serve": {
           "options": {
             "allowedHosts": ["*"],
-            "host": "0.0.0.0"
+            "host": "0.0.0.0",
+            "open": true
           },
           "builder": "@angular/build:dev-server",
           "configurations": {
