@@ -16,6 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Configuration/" />
+    <Folder Include="Endpoints/" />
     <Folder Include="Filters/" />
     <Folder Include="Repos/" />
   </ItemGroup>
