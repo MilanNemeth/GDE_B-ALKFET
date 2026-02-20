@@ -11,5 +11,5 @@
     }
 </ul>
 
-<app-hero-detail [hero]="selectedHero" (heroDeleted)="handleDelete($event)">
+<app-hero-detail [hero]="selectedHero()" (heroDeleted)="onDelete($event)" (heroCanceled)="onCancel()">
 </app-hero-detail>

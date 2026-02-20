@@ -33,7 +33,7 @@ export class HeroesComponent implements OnInit {
         });
   }
 
-  onSelect(hero: Hero | undefined): void {
+  onSelect(hero: Hero): void {
     if (this.selectedHero() === hero) {
       this.selectedHero.set(undefined); // Clear the selected hero if the same hero is clicked again
       return;
@@ -42,11 +42,15 @@ export class HeroesComponent implements OnInit {
     this.messageService.add(`HeroesComponent: ${hero ? `Selected hero id=${hero.id}` : 'Cleared selected hero'}`);
   }
 
-  handleDelete(deletedHeroId: string): void {
+  onDelete(deletedHeroId: string): void {
     this.heroes.update(heroes => heroes.filter(hero => hero.id !== deletedHeroId));
     if (this.selectedHero()?.id === deletedHeroId) {
       this.selectedHero.set(undefined); // Clear the selected hero if it was deleted
     }
+  }
+
+  onCancel(): void {
+    this.selectedHero.set(undefined);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Output, input, output } from '@angular/core';
 import { Hero } from '../domain/hero';
 import { FormsModule } from '@angular/forms';
 import { HeroService } from '../hero-service';
@@ -14,8 +14,9 @@ import { CommonModule } from '@angular/common';
 export class HeroDetail {
   constructor(private heroService: HeroService) { }
 
-  @Input() hero = signal<Hero | undefined>(undefined);
-  @Output() heroDeleted = new EventEmitter<string>();
+  hero = input<Hero | undefined>();
+  heroDeleted = output<string>();
+  heroCanceled = output<void>();
 
   save(): void {
     if (this.hero()) {
@@ -47,6 +48,6 @@ export class HeroDetail {
   }
 
   cancel(): void {
-    this.hero.set(undefined); // Clear the selection
+    this.heroCanceled.emit(); // Emit cancel event
   }
 }
