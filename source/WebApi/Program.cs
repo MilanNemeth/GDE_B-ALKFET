@@ -82,4 +82,4 @@ app.MapDelete("/hero/{id}", async ([FromRoute]Guid id, [FromServices]IHeroReposi
 }).WithName("DeleteHero");
 
 
-app.Run();
+await app.RunAsync();
