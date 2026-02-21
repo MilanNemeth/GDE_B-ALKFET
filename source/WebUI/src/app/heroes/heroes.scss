@@ -6,12 +6,6 @@
   margin: 0 auto;
 }
 
-/* override bootstrap active so it matches a dark theme */
-.list-group-item.active {
-  background-color: #000;
-  color: #fff;
-}
-
 /* ensure clickable items look pointer-y */
 .list-group-item {
   cursor: pointer;

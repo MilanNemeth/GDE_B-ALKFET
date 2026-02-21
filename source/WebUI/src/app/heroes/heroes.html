@@ -1,15 +1,17 @@
 <h2>My Heroes</h2>
-<ul class="list-group">
-    @for (hero of heroes(); track hero.id) {
-    <li class="list-group-item d-flex justify-content-between align-items-center" [class.active]="hero === selectedHero()"
-        (click)="onSelect(hero)">
-        <span>{{hero.id}}</span>
-        <span>{{hero.name}}</span>
+<ol class="list-group list-group-numbered">
+    @for (hero of heroes(); track hero.id; let e = $even) {
+    <li [ngClass]="hero === selectedHero() ? 'list-group-item list-group-item-primary' : (e ? 'list-group-item list-group-item' : 'list-group-item-secondary list-group-item')"
+        class="d-flex align-items-start justify-content-between" (click)="onSelect(hero)" role="button" tabindex="0"
+        (keydown.enter)="onSelect(hero)" (keydown.space)="onSelect(hero)">
+        <div class="ms-2 me-auto">
+            <div class="small text-muted">{{hero.id}}</div>
+            <div class="fw-bold">{{hero.name}}</div>
+        </div>
     </li>
     } @empty {
     <li class="list-group-item">There are no items.</li>
     }
-</ul>
+</ol>
 
-<app-hero-detail [hero]="selectedHero()" (heroDeleted)="onDelete($event)" (heroCanceled)="onCancel()">
-</app-hero-detail>
+<app-hero-detail [hero]="selectedHero()" (heroDeleted)="onDelete($event)" (heroCanceled)="onCancel()"></app-hero-detail>
