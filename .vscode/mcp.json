@@ -35,6 +35,13 @@
       "env": {
         "MDB_MCP_CONNECTION_STRING": "mongodb://balkfet-mongodb:27017/"
       }
+    },
+    "my-heroes": {
+      "type": "http",
+      "url": "http://localhost:5000/mcp",
+      "headers": {
+        "X-API-Key": "my-supersecret-apikey-1"
+      }
     }
   }
 }

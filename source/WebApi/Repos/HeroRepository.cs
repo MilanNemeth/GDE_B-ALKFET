@@ -6,7 +6,7 @@ namespace WebApi.Repos;
 
 public class HeroRepository(IMongoDbConnectionFactory dbFactory) : IHeroRepository
 {
-    private IMongoCollection<Hero> Collection => dbFactory.GetDatabase().GetCollection<Hero>("Heroes");
+    protected IMongoCollection<Hero> Collection => dbFactory.GetDatabase().GetCollection<Hero>("Heroes");
 
     public async Task<Hero?> GetHero(Guid id, CancellationToken ct = default)
     {

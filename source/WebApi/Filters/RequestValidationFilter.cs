@@ -1,4 +1,3 @@
-using System;
 using Domain;
 
 namespace WebApi.Filters;

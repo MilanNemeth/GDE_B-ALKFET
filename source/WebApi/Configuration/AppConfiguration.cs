@@ -32,6 +32,9 @@ public static class AppConfiguration
                       .AllowAnyMethod());
         });
 
+        services.AddMcpServer()
+            .WithHttpTransport()
+            .WithToolsFromAssembly();
 
         return services;
     }
@@ -40,6 +43,7 @@ public static class AppConfiguration
     {
         services.AddSingleton<IMongoDbConnectionFactory, MongoDbConnectionFactory>();
         services.AddScoped<IHeroRepository, HeroRepository>();
+        services.AddScoped<IMcpHeroRepository, McpHeroRepository>();
 
         return services;
     }
