@@ -16,20 +16,19 @@ Javasolt a következő módszertan alkalmazása, az alkalmas eszközök megjelö
 5. **Készítsünk tanulási tervet, ami igazodik az aktuális tudásszintünkhöz (önálló tevékenység).** <br />
     Fontos, hogy a tanulási terv reális és megvalósítható legyen. Osszuk fel a tanulási folyamatot kisebb, kezelhető részekre, és határozzunk meg konkrét időkereteket a tanulásra. 
 6. **Szűrjük meg a forrásokat úgy, hogy azok a legjobban igazodjanak a tanulási tervhez (önálló tevékenység).** <br />
-    Állítsunk fel egy sorrendet a tanulási források között, és szelektáljuk ki azokat, amik túl nagy részletességel taglalják a témát.Részesítsük előnyben a hands-on forrásokat, ahol lehetőség van gyakorlat közben megismerni a területet (pl.: rövidebb online kurzusok, kb. 1-1,5 órás crash-course videók). A hatalmas, száraz, elméleti anyagokat hagyjuk meg a későbbi szakaszokra, amikor már van egy jó alapunk, és egy célzott probléma megoldására keresünk precíz választ (pl.: vastag könyvek, hatalmas technikai dokumentációk). Még soha senki nem sajátított el új készséget a dokumentáció végigolvasásával!
+    Állítsunk fel egy sorrendet a tanulási források között, és szelektáljuk ki azokat, amik túl nagy részletességel taglalják a témát.Részesítsük előnyben a hands-on forrásokat, ahol lehetőség van gyakorlat közben megismerni a területet (pl.: rövidebb online kurzusok, max kb. 1 órás crash-course videók). A hatalmas, száraz, elméleti anyagokat hagyjuk meg a későbbi szakaszokra, amikor már van egy jó alapunk, és egy célzott probléma megoldására keresünk precíz választ (pl.: vastag könyvek, hatalmas technikai dokumentációk). Még soha senki nem sajátított el új készséget a dokumentáció végigolvasásával!
 7. **Tanuljunk épp eleget, ami minimálisan elégséges ahhoz, hogy tudjunk csinálni valamit a gyakorlatban (önálló tevékenység).** <br />
-    Fontos, hogy minél előbb billentyűzetet ragadjunk, és bepiszkoljuk a kezünket. A tanulás nem egy passzív folyamat, hanem egy aktív, gyakorlati tevékenység. Minél előbb elkezdünk gyakorolni, annál gyorsabban fogunk fejlődni.
+    Fontos, hogy minél előbb billentyűzetet ragadjunk, és bepiszkoljuk a kezünket a témával. A tanulás nem egy passzív folyamat, hanem egy aktív, gyakorlati tevékenység. Minél előbb elkezdünk gyakorolni, annál gyorsabban fogunk fejlődni.
 8. **Kezdjünk el játszani az új technológiával (önálló tevékenység).** <br />
-    Szórakozzunk, kísérletezzünk, próbáljuk ki, hogy az elképzeléseink/feltételezéseink megállnak-e a gyakorlatban is. Hibázzunk, és tanuljunk a hibákból, mert a sikerekből biztosan nem fogunk! A játékosság segít fenntartani a motivációt, és lehetővé teszi, hogy kreatív módon fedezzük fel az új technológiát. Próbáljunk ki mindent ami eszünkbe jut, és járunk utána a váratlan eredményeknek.
+    Szórakozzunk, kísérletezzünk, próbáljuk ki, hogy az elképzeléseink/feltételezéseink megállnak-e a gyakorlatban is. Hibázzunk, és tanuljunk a hibákból, mert a sikerekből biztosan nem fogunk! A játékosság segít fenntartani a motivációt, és lehetővé teszi, hogy kreatív módon fedezzük fel az új technológiát. Próbáljunk ki mindent, ami eszünkbe jut, és járjunk utána a váratlan eredményeknek.
 9. **Folytassuk a tanulást azzal a fókusszal, hogy valami hasznosat tudjunk csinálni (önálló tevékenység).** <br />
     Ha kijátszottuk magunkat, erősítsük meg az így megszerzett gyakorlati tudást még egy kis elmélettel, amit így már lesz hova tenni. Amint elég tudásunk van ahhoz, hogy valami hasznosat csináljunk, kezdjünk el dolgozni egy projekten, ami érdekel minket. Ez lehet egy személyes projekt, egy open-source hozzájárulás, vagy akár egy munkahelyi feladat. A lényeg, hogy alkalmazzuk a tanultakat a gyakorlatban, és folyamatosan fejlesszük a készségeinket.
 10. **Tanítsunk! Adjuk tovább a tudást (kurzus, önálló tevékenység).** <br />
     A tanítás az egyik leghatékonyabb módja annak, hogy elmélyítsük a saját tudásunkat. Amikor megpróbáljuk elmagyarázni egy másik embernek, hogy hogyan működik valami, akkor kénytelenek vagyunk rendszerezni a tudásunkat, és tisztázni a fogalmakat. Ez segít abban, hogy jobban megértsük a témát, és észrevegyük az esetleges vakfoltjainkat. Emellett a tanítás lehetőséget ad arra is, hogy kapcsolatba lépjünk másokkal, akik hasonló érdeklődésűek, és hogy közösen tanuljunk és fejlődjünk.
 
+
 ## Container technológiák
-
 ### Docker
-
 #### Bevezetés
 A Docker egy nyílt forráskódú platform, amely lehetővé teszi a fejlesztők számára, hogy alkalmazásokat és szolgáltatásokat konténerekben csomagoljanak, szállítsanak és futtassanak. A Docker konténerek könnyűek, hordozhatóak és gyorsan indíthatóak, ami megkönnyíti az alkalmazások fejlesztését, tesztelését és üzemeltetését különböző környezetekben. A Docker használatával a fejlesztők biztosíthatják, hogy az alkalmazásuk ugyanúgy működjön a fejlesztői gépen, a tesztkörnyezetben és a gyártási környezetben is, minimalizálva a "works on my machine" problémákat.
 A [nyílt konténer specifikációknak](https://notes.kodekloud.com/docs/Kubernetes-and-Cloud-Native-Associate-KCNA/Cloud-Native-Architecture/Open-Standards/page) köszönhetően, mára számos alternatíva létezik. 
@@ -109,4 +108,52 @@ Példák:
 - `docker network`: Docker hálózatok kezelése.
 - `docker volume`: Docker kötetek kezelése.
 
-### Container Orchestration - Kubernetes (k8s)
+
+### Container Orchestration - Kubernetes (K8s)
+
+#### Kubernetes bevezetés
+A Kubernetes egy nyílt forráskódú platform, amelyet a Google fejlesztett ki. Lehetővé teszi a konténerizált alkalmazások automatikus telepítését, skálázását és kezelését. A Kubernetes egy konténer orchestrációs rendszer, amely segít a fejlesztőknek és az üzemeltetőknek abban, hogy hatékonyan kezeljék a konténereket nagy léptékben, különböző környezetekben, miközben biztosítják a magas rendelkezésre állást és a hibatűrést. A Kubernetes egy komplex rendszer, amely számos komponensből áll, és sokféle funkciót kínál.
+
+#### Kubernetes architektúra
+
+![Kubernetes Cluster Architektúra](https://kubernetes.io/images/docs/kubernetes-cluster-architecture.svg)
+
+Egy Cluster fő építőeleme a Node, amely egy fizikai vagy virtuális gépet jelent. A cluster futhat egy vagy több Node-on. A Node-ok két fő típusa a Master aka. Control Plane Node és a Worker Node. A Control Plane felelős a cluster irányításáért, ezen futnak a Kubernetes rendszer komponensei. A Worker Node-ok futtatják az általunk meghatározott workload-okat.
+Single Node cluster esetén a Control Plane és a Worker Node ugyanaz. Ebben az esetben a cluster minden komponense ugyanazon a gépen fut. Ez ideális fejlesztéshez és teszteléshez, de nem ajánlott éles környezetben, mivel nem biztosítja a magas rendelkezésre állást és a hibatűrést.
+Multi Node cluster esetén a Control Plane és a Worker Node-ok külön gépeken futnak. Ez lehetővé teszi a magas rendelkezésre állást és a hibatűrést, mivel ha egy Node meghibásodik, a többi Node továbbra is működik, és a cluster képes fenntartani az alkalmazások elérhetőségét.
+
+Főbb rendszer komponensek:
+- **kube API server**: A központi kompnens, amin keresztül kapcsolódik a többi rendszer komponens. Mi is ehhez csatlakozunk `kubectl` vagy egyéb kliens használatával. Ezen egy REST API fut, amivel mTLS kapcsolaton keresztül lehet kommunikálni.
+- **controller manager**: Felelős a cluster állapotának fenntartásáért. Folyamatosan figyeli a cluster állapotát, és ha eltérést észlel a kívánt állapot és a tényleges állapot között, akkor megteszi a szükséges lépéseket az eltérés korrigálására.
+- **scheduler**: Felelős a Podok ütemezéséért a Worker Node-okra. Amikor egy új Pod jön létre, a Scheduler meghatározza, hogy melyik Node-on fog futni, figyelembe véve a Node erőforrásait, a Pod követelményeit és egyéb tényezőket.
+- **etcd**: Egy kulcs-érték adatbázis, amely a Kubernetes cluster állapotát tárolja elosztott módon.
+- **kubelet**: Minden Worker Node-on fut, és felelős a Podok futtatásáért és karbantartásáért a Node-on. A Kubelet folyamatosan kommunikál az API Server-rel, hogy jelentse a Node állapotát és a rajta futó Podok állapotát. Ez tartja a kapcsolatot az azonos Node-on lévő container runtime-mal (by-default containerd).
+- **kube proxy**: Minden Worker Node-on fut, és felelős a hálózati forgalom irányításáért a Podok között, valamint a Podok és a külvilág között. A kube proxy biztosítja, hogy a Podok elérhetőek legyenek a cluster-en belül és (adott esetben) kívül is.
+- **cloud controller manager**: Opcionális komponens, amely a Kubernetes cluster és a cloud szolgáltató közötti integrációt biztosítja. Ez a komponens felelős a cloud-specifikus műveletekért, mint például új node-ok vagy load balancer-ek létrehozása, storage provisioning, stb.
+
+A kubernetes erőforrásoknak két nagy csoportja van:
+- **Namespaced**: Csak a megadott névtérben lehet létrehozni.
+- **Cluster-wide**: Nem névterekhez kötött, a cluster egészére vonatkozik.
+
+Főbb **Cluster-wide** erőforrás típusok:
+- **Node**: A Node bár az infrastruktúra része, mégis mint lekérdezhető erőforrás is megjelenik a Clusterben, és ezen keresztül tudunk róla információkat lekérdezni, konfigurálni, vagy akár módosítani az állapotát.
+- **Namespace**: Mechanizmust biztosítanak az erőforrások csoportjainak elkülönítésére egyetlen Cluster-en belül. A Namespaced erőforrások neveinek egyedinek kell lenniük egy névtéren belül, viszont a névterek között már nem.
+- **CustomResourceDefinition**: Lehetővé teszi, hogy saját erőforrás típusokat definiáljunk a Kubernetes-ben, amiket aztán ugyanúgy használhatunk, mint a beépített erőforrásokat. Ez egy nagyon hasznos eszköz, amivel a Kubernetes funkcionalitását ki tudjuk terjeszteni a saját igényeink szerint.
+
+Főbb **Namespaced** erőforrás típusok:
+- **Pod**: A Kubernetes legkisebb egysége, amely egy vagy több konténert futtat, amelyek megosztják egymással a Node erőforrásainak egy részét. A Pod egy logikai egységet képez, aminek a konténerei mindig ugyanazon a Node-on futnak. Podokat standalone módon is létrehozhatunk, viszont ez nem egy perzisztens megoldás, ezért általában magasabb szintű erőforrások (pl.: ReplicaSet, Deployment, stb...) kezelik őket. A managelt Podok nevei egyedi, de nem perzisztens azonosítóval végződnek, ami a manager ReplicaSet és a Pod azonosítóiból áll össze.
+- **ReplicaSet**: Manager erőforrás, amely Podokat kezel. Biztosítja, hogy egy adott számú Pod mindig fusson a cluster-en. Ha egy Pod eltűnik, a ReplicaSet automatikusan létrehoz helyette egy újat, hogy fenntartsa a futó Podok kívánt számát. A neve egyedi, de nem perzisztens azonosítóval végződik, amelyet a managelt Podok is megörökölnek.
+- **Deployment**: Manager erőforrás, amely egy ReplicaSet-et kezel. A Deployment rolling-update és rollback funkciót biztosít egyazon ReplicaSet különböző verziói között.
+- **StatefulSet**: Manager erőforrás, amely egy vagy több Podot kezel, amelyek nevei egyedi, PERZISZTENS azonosítóval rendelkeznek (inkrementális zero-based index). Ahogy a neve is mutatja, ez a típus olyan alkalmazásokhoz optimális, amelyek állapotot tárolnak, és szükségük van egyedi azonosítókra a Podok között (pl.: adatbázisok). Itt is meg lehet határozni Replica számot, de a StatefulSet nem ReplicaSet-et használ, hanem közvetlenül kezeli a Podokat.
+- **DaemonSet**: Manager erőforrás, amely pontosan egy Podot futtat minden Node-on, mindenkor. Ez olyan alkalmazásokhoz optimális, amelyeknek minden Node-on futniuk kell (pl.: loggyűjtők, monitoring ügynökök, stb...).
+- **Service**: Több típusa van:
+    - **ClusterIP**: Ez a default típus, amely egy virtuális IP címet biztosít, és ezen keresztül load balancing szolgáltatást végez a mögöttes Podok között.
+    - **NodePort**: Ez a típus egy portot nyit meg a clusteren egy előre meghatározott tartományból (by-default: 30000-32767), amelyen keresztül elérhetővé teszi a mögöttes Podokat kívülről is. Ezen túlmenően úgy működik, mint egy ClusterIP.
+    - **Headless Service**: Ez a típus nem biztosít virtuális IP címet, és nem végez load balancing szolgáltatást a Podok között. Ezzel a típussal közvetlenül egy Pod IP címére lehet hivatkozni, ami hasznos pl.: StatefulSet esetén, ahol szükség van a Podok egyedi elérésére (pl.: [leader election](https://en.wikipedia.org/wiki/Leader_election) miatt).
+    - **LoadBalancer**: Ez a típus egy külső load balancer-t hoz létre a cloud szolgáltatónál, amelyen keresztül elérhetővé teszi a Service-t a Clusteren kívülről is.
+    - **ExternalName**: Különleges típus, amely nem IP címre, hanem egy CNAME DNS rekordra oldódik fel. Ezzel egy absztrakciós réteget tudunk felhúzni egy külső szolgáltatás köré. Arra jó, hogy elég egy helyen kezelni egy külső erőforrás elérését, egy stabil Service cím mögé rejtve.
+Minden Service címezhető a következő szabály szerint: `<service-neve>.<névtér-neve>.svc.cluster.local`.
+- **Secret**: Olyan erőforrás, amely érzékeny adatokat tárol, mint például jelszavak, tokenek, vagy kulcsok. A Secret-eket általában a Podok használják a konfigurációjukhoz, anélkül, hogy az érzékeny adatok közvetlenül a Pod definíciójában szerepelnének. A Secret-ek az adatokat base64 kódolással tárolják, ami nem jelent valós védelmet, ezért fontos, hogy megfelelően kezeljük és korlátozzuk a hozzáférést ezekhez az erőforrásokhoz! Lehetőség van arra is, hogy külső titkosító megoldásokat integráljunk, hogy valódi védelmet biztosítsunk a Secret-ek számára (pl.: Sealed Secrets, KeyVault).
+- **ConfigMap**: Olyan erőforrás, amely nem érzékeny konfigurációs adatokat tárol, mint például környezeti változók, konfigurációs fájlok, parancssori argumentumok, scriptek, stb... A ConfigMap-ek lehetővé teszik, hogy a konfigurációt elkülönítsük az alkalmazás kódjától, így könnyebben kezelhetjük és frissíthetjük a konfigurációt anélkül, hogy újra kellene buildelni miattuk alkalmazás image-ket, vagy újra kellene indítani a Podokat. (A gyakorlatban ennél azért kicsit bonyolultabb a helyzet, de ez a fő koncepció.)
+
+
