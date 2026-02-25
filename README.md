@@ -156,4 +156,27 @@ Minden Service címezhető a következő szabály szerint: `<service-neve>.<név
 - **Secret**: Olyan erőforrás, amely érzékeny adatokat tárol, mint például jelszavak, tokenek, vagy kulcsok. A Secret-eket általában a Podok használják a konfigurációjukhoz, anélkül, hogy az érzékeny adatok közvetlenül a Pod definíciójában szerepelnének. A Secret-ek az adatokat base64 kódolással tárolják, ami nem jelent valós védelmet, ezért fontos, hogy megfelelően kezeljük és korlátozzuk a hozzáférést ezekhez az erőforrásokhoz! Lehetőség van arra is, hogy külső titkosító megoldásokat integráljunk, hogy valódi védelmet biztosítsunk a Secret-ek számára (pl.: Sealed Secrets, KeyVault).
 - **ConfigMap**: Olyan erőforrás, amely nem érzékeny konfigurációs adatokat tárol, mint például környezeti változók, konfigurációs fájlok, parancssori argumentumok, scriptek, stb... A ConfigMap-ek lehetővé teszik, hogy a konfigurációt elkülönítsük az alkalmazás kódjától, így könnyebben kezelhetjük és frissíthetjük a konfigurációt anélkül, hogy újra kellene buildelni miattuk alkalmazás image-ket, vagy újra kellene indítani a Podokat. (A gyakorlatban ennél azért kicsit bonyolultabb a helyzet, de ez a fő koncepció.)
 
+#### Kubernetes használata
 
+Az interakció valamilyen kliens alkalmazás használatával lehetséges, amely képes kommunikálni a kube API szerverrel. A leggyakrabban használt kliens a `kubectl`, amely lehetővé teszi a Kubernetes erőforrások létrehozását, lekérdezését, frissítését és törlését, így könnyen kezelhetjük a Kubernetes clustert.
+
+**Gyakori `kubectl` parancsok:**
+- `kubectl run`: Egy új, standalone Pod létrehozása egy adott image-ből. Jellemzően nem használjuk, mert manifest alapján szoktuk létrehozni az erőforrásokat, de teszteléshez hasznos lehet.
+- `kubectl expose`: Egy meglévő Podhoz új Service kapcsolása. Jellemzően nem használjuk, mert manifest alapján szoktuk létrehozni az erőforrásokat, de teszteléshez hasznos lehet.
+- `kubectl get`: Kubernetes erőforrások listázása.
+- `kubectl describe`: Egy erőforrás részletes információinak megtekintése.
+- `kubectl apply`: Egy erőforrás létrehozása vagy frissítése egy YAML fájl alapján.
+- `kubectl create`: Egy erőforrás létrehozása egy YAML manifest fájl alapján. Az `apply`-hoz képest kevésbé érzékeny az időtúllépésre nagy méretű manifest fájlok esetén.
+- `kubectl edit`: Egy erőforrás szerkesztése "menet közben" a default szövegszerkesztőnkben.
+- `kubectl delete`: Egy erőforrás törlése.
+- `kubectl logs`: Egy Podon futó konténer logjainak megtekintése.
+- `kubectl exec`: Parancs futtatása egy Podon futó konténerben.
+- `kubectl port-forward`: Port forwarding egy erőforráshoz, hogy elérhetővé tegyük a szolgáltatásait a helyi gépünkön keresztül.
+
+**Kubernetes manifest fájlok** YAML formátumban vannak, és tartalmazzák a létrehozandó erőforrások specifikációját. A manifest fájlok segítségével deklaratív módon definiálhatjuk (verzió kezelhetjük) a Kubernetes erőforrásokat, és pl. a `kubectl apply` parancs segítségével létrehozhatjuk vagy frissíthetjük ezeket az erőforrásokat a clusterben. A manifest fájlokban meg kell adni az erőforrás típusát, nevét, névterét (ha szükséges), valamint a specifikációt (spec szekció), amely tartalmazza az erőforrás konfigurációját és működését meghatározó részleteket.
+
+**Néhány példa a hivatalos Kubernetes dokumentációból:**
+- [Pod dokumentáció minimal manifest példával.](https://kubernetes.io/docs/concepts/workloads/pods/)
+- [Deployment dokumentáció minimal manifest példával.](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+- [Service dokumentáció minimal manifest példával.](https://kubernetes.io/docs/concepts/services-networking/service/)
+- [Secret dokumentáció minimal manifest példával.](https://kubernetes.io/docs/concepts/configuration/secret/)
