@@ -26,8 +26,86 @@ Javasolt a következő módszertan alkalmazása, az alkalmas eszközök megjelö
 10. **Tanítsunk! Adjuk tovább a tudást (kurzus, önálló tevékenység).** <br />
     A tanítás az egyik leghatékonyabb módja annak, hogy elmélyítsük a saját tudásunkat. Amikor megpróbáljuk elmagyarázni egy másik embernek, hogy hogyan működik valami, akkor kénytelenek vagyunk rendszerezni a tudásunkat, és tisztázni a fogalmakat. Ez segít abban, hogy jobban megértsük a témát, és észrevegyük az esetleges vakfoltjainkat. Emellett a tanítás lehetőséget ad arra is, hogy kapcsolatba lépjünk másokkal, akik hasonló érdeklődésűek, és hogy közösen tanuljunk és fejlődjünk.
 
+## Adatbázis technológiák és adatintegráció
+Kapcsolódó Microsoft kurzus: [DP-900](https://learn.microsoft.com/en-us/training/courses/dp-900t00)
+
+### Adatintegráció
+Az adatintegráció a modern adattárház-architektúra kiindulópontja, vagyis az a folyamat, ahol a különböző forrásokból érkező adatot elemzésre alkalmassá tesszük. Ebben a szakaszban nem pusztán adatmozgatás történik, hanem célzott adat-előkészítés is.
+
+Tipikus források:
+- adatbázisok,
+- fájlalapú források,
+- valós idejű adatfolyamok (streaming),
+- egyéb források.
+
+Egy nagy adat-analitikai architektúra változatosan nézhet ki, ahogyan a konkrét technológiai megvalósítása is, de általánosságbanban a folyamat a következőképpen zajlik:
+
+A beérkező adatok célhelye jellemzően egy speciálisan erre a célra kialakított analitikai tároló megoldás. A betöltés során az adatokat tisztítjuk, szűrjük és átstrukturáljuk, hogy megfeleljenek az analitikai felhasználás igényeinek.
+
+Az adatintegráció két elterjedt folyamatsémája:
+- **ETL (Extract, Transform, Load):** az adatok a betöltés előtt esnek át transzformáción, így a célrendszerbe már feldolgozott állapotban kerülnek.
+- **ELT (Extract, Load, Transform):** a nyers adatok először betöltésre kerülnek a célrendszerbe, és a transzformáció ezt követően, a tárolón belül történik.
+
+Az ETL és az ELT közti fő különbség a lépések sorrendje, ugyanakkor a cél közös: olyan adatszerkezet kialakítása, amely optimális analitikai műveletekhez. A megfelelő módszer kiválasztása nagyban függ az adatok mennyiségétől és minőségétől.
+
+Nagy adatmennyiségnél a feldolgozás tipikusan elosztott rendszerekben történik. Ilyenkor többcsomópontos (multi-node) klaszterek dolgoznak párhuzamosan, ami lehetővé teszi a magas adatmennyiség hatékony, skálázható feldolgozását.
+
+Működés szempontjából az adatintegráció egyszerre támogatja:
+- a **batch feldolgozást** (statikus adatok időszakos betöltése és feldolgozása),
+- a **valós idejű feldolgozást (streaming)** (folyamatosan érkező adatfolyamok kezelése és feldolgozása).
+
+Ez a réteg teremti meg az alapot a későbbi analitikai adattárolási, modellezési és vizualizációs lépések számára.
+
+### Adatbázis technológiák
+Az adatbázis technológiák a modern adattárház-architektúra központi elemei, amelyek lehetővé teszik az adatok hatékony tárolását, lekérdezését és kezelését. Az adatbázisoknak különböző típusai léteznek, amelyek más-más adattárolási és lekérdezési modelleket kínálnak. Éppen ezért a kiválasztásuk nagyban függ az alkalmazási terület sajátosságaitól, valamint az adatok szerkezetétől, azok kapcsolataitól és a használati mintáktól.
+
+- **Relációs adatbázisok (RDBMS)**: <br />
+_Példák: MySQL, PostgreSQL, Microsoft SQL Server._ <br />
+Az adatok táblákban vannak tárolva, amelyek sorokból és oszlopokból állnak. Jellemzően erős konzisztenciát biztosítanak.
+A tranzakciókra jellemző az ACID (Atomicity, Consistency, Isolation, Durability), ami garantálja az adatok integritását és megbízhatóságát. 
+Ez teszi őket ideálissá olyan alkalmazásokhoz, ahol fontos az adatok pontossága és megbízhatósága (pl.: pénzügyi rendszerek, ügyféladatbázisok, stb...).
+SQL (Structured Query Language) használatával lehet lekérdezni és manipulálni az adatokat, ami egy széles körben elterjedt és jól ismert nyelv.
+Hátrányuk, hogy nem mindig hatékonyak nagy mennyiségű, gyorsan változó vagy nem strukturált adatok kezelésére.
+Egy különleges megvalósítása a _CockroachDB_, amely gyárilag (out-of-the-box) egy elosztott SQL adatbázis, ami a relációs adatbázisok előnyeit ötvözi az elosztott rendszerek skálázhatóságával és hibatűrésével (horizontális skálázás). <br />
+A PostgreSQL különböző bővítményeken keresztül nagy rugalmasságot biztosít, ami túlmutat a klasszikus RDBMS kereteken.
+- **Nem-relációs adatbázisok (NoSQL)**: <br />
+Ez egy gyűjtőfogalom. Lényegében ide tartozik minden eltérő adatbázis implementáció, ami nem követi az RDBMS modellt. Több különböző típusú adatbázist foglal magában, amik között érdemes disztingválni, mert más-más adattárolási és lekérdezési modellt támogatnak, és más-más alkalmazási területeken lesznek optimálisak:
+  - **Columnar adatbázisok**: <br />
+  _Példák: Amazon Redshift, Google BigQuery._ <br />
+  Az adatokat ugyan úgy kell elképzelni, mint a relációs adatbázisoknál, táblákban, sorokból és oszlopokból. A fizikai tárolás (memory layout) viszont oszlop-alapú, nem pedig rekord avagy sor-alapú. Ebből kifolyólag nagyon hatékonyak aggregációk és analitikai lekérdezések végrehajtására, ahol jellemzően csak egy vagy néhány oszlopra van szükség, és nem teljes rekordokra.
+  Hátrányuk, hogy nem ideálisak teljes rekordos, sor-alapú műveletekhez (tranzakciók).
+  - **Kulcs-érték adatbázisok**: <br />
+  _Példák: Redis, etcd._ <br />
+  Az adatokat kulcs-érték párok formájában tárolják, ahol a kulcs egyedi azonosítóként szolgál. A kulcsok és az értéket megengednek némi össszetettséget, de alapvetően egyszerűbb adatszerkezetek tárolására lettek kitalálva (string, hash, json, stb.). Nagyon gyorsak és hatékonyak egyszerű lekérdezésekhez és írás műveletekhez. Ideálisak központi cache- és konfiguráció-management, elosztott lockolás, vagy bizonyos esetekben akár message-broker funkciók megvalósítására is.
+  Hátrányuk, hogy nem alkalmasak összetett lekérdezések és komplex (relációs) adatszerkezetek kezelésére.
+  - **Gráf adatbázisok**: <br />
+  _Példák: Neo4j, Apache TinkerPop._ <br />
+  Az adatokat tulajdonságok (properties), csomópontok (nodes) és élek (edges) formájában tárolják, amely optimálissá teszi őket kapcsolati modellek tárolására. Olyan alkalmazásokhoz ideálisak, ahol a kapcsolatok kiemelt szerepet játszanak (pl.: közösségi hálók, összetett infrastruktúrák, hálózati topológiák, ajánlórendszerek, stb.). Közismert lekérdezési nyelvek a Cypher és a Gremlin.
+  Fő hátrányuk, hogy más, általánosabb jellegű adattárolásra nem optimálisak.
+  - **Dokumentum-alapú adatbázisok**: <br />
+  _Példák: MongoDB._ <br />
+  Az adatokat dokumentumok formájában tárolják, pl. BSON (Binary JSON) formátumban. Ez lehetővé teszi a rugalmas és dinamikus sémát, ami jól illeszkedik félstrukturált adatokhoz. Ideálisak olyan alkalmazásokhoz, ahol a sémaváltozás gyakori, vagy nincs is séma, vagy esetleg az adatszerkezet dinamikusan bővíthető kell hogy maradjon. Gyakran duplikáljuk és egymásba ágyazzuk az adatokat, compute optimalizáció céljából, így a lekérdezések gyorsabbak lesznek, de ez a redundanciák miatt nagyobb tárhelyet igényel. 
+  Hátrányuk, hogy nem optimálisak storage optimalizálásra, JOIN műveletekhez, és a logikailag összetartozó műveletek alapból nem feltétlenül atomikusak. 
+  - **Idő-sor adatbázisok**: <br />
+  _Példák: Prometheus, InfluxDB._ <br />
+  Az adatokat időbélyeggel ellátott értékek formájában tárolják, ami ideálissá teszi őket idő-sor adatok kezelésére (pl.: monitoring: logok, tracek, metrikák; szenzor adatok; események és egyéb analitikai adatok). Olyan kulcs-érték adatbázisként kell elképzelni, ahol a kulcsok specifikusan időbélyegre optimalizáltak.
+  Fő hátrányuk, hogy más, általánosabb jellegű adattárolásra nem optimálisak.
+  - **Wide-column adatbázisok**: <br />
+  _Példák: Apache Cassandra._ <br />
+  Az adatokat táblákban tárolja, rugalmas sémával, és a rendszerezéshez partíciókulcsokat használ. Elosztott rendszerben működik, ahol az olvasási/írási műveletek lineárisan skálázódnak új Node-ok hozzáadásával. Mellérendelő hierarchiában valósítja meg a horizontális skálázást, vagyis nincs master/primary node. Olyan alkalmazásokhoz optimális, ahol kritikus az átlagon felüli throughput és a magas rendelkezésre állás biztosítása, nagy volumenű forgalom mellett. Lekérdezési nyelve a CQL (Cassandra Query Language), ami SQL-szerű, de nem támogatja a JOIN műveleteket.
+  Hátránya, hogy nem optimálisak összetett lekérdezésekhez és tranzakciókhoz. Relációs struktúrák helyett az adatokat denormalizálni kell, és a lekérdezési mintázatokhoz alakítani. Kulcs trade-off, hogy a rendelkezésre állás fordítottan arányos a konzisztencia szintekkel, ami gyakori jellemzője elosztott rendszereknek (CAP theorem).
+  - **Multi-model adatbázisok**: <br />
+  _Példák: Azure Cosmos DB, Amazon DynamoDB._ <br />
+  Fő előnyük a rugalmasság. Több adattárolási modellt, és a beépített API-kon keresztül több lekérdezési nyelvet is támogatnak, mindezt egyetlen adatbázisban. Ez segít hordozhatóbbá tenni az alkalmazásokat adatbázisok között. Jellemzően Cloud szolgáltatók biztosítják őket PaaS modellben, ahol gyárilag megoldott a globális skálázhatóság.
+  Hátrányuk, hogy költségesek lehetnek, és nem teljesítenek olyan jól bizonyos helyzetekben, mint a specializált adatbázisok. Továbbá a konzisztencia trade-off azonos a Cassandra esetével, amit mindig hozzá kell igazítani az adott use case-hez.
+
+A megfelelő rendszer- és adattárolási design kulcsa a navigáció a megfelelő trade-off-ok között, aminek előfeltétele az adatok, és azok kapcsolatainak megértése, ismerete. Sok esetben elfogadható az adatok duplikációja, akár egy adatbázison belül, akár több speciálizált adatbázis között, ha ez javítja az alkalmazás teljesítményét. Ez mérhető kell, hogy legyen, jól definiált KPI-ok alapján.
+
+[Bővebben a normalizációról, denormalizációról](https://youtu.be/bKDaL-GRSAM?list=PLLasX02E8BPDd2fKwLCHnmWoyo4bL-oKr)
+
 
 ## Felhőalapú alkalmazásfejlesztés és platformok
+Kapcsolódó Microsoft kurzus: [AZ-900](https://learn.microsoft.com/en-us/training/courses/az-900t00)
 ### Container technológiák
 #### Docker
 ##### Bevezetés
